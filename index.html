@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html ng-app="waitStaffApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <style>
+        .box {
+            width: auto;
+            padding: 10px;
+            border: 5px solid gray;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class ="container">
+    <h1>Waitstaff Calculator</h1>
+    <div class="row">
+        <div class="col-xs-9  col-md-10 "  ng-controller="mealDetailController">
+            <h2>Enter the Meal Details</h2>
+
+            <form name="frmMealDetails" ng-submit="submit()" >
+                <div class="row">
+                    <label class="col-xs-6 col-md-4" for="mealPrice">Base Meal Price: £</label>
+                    <input class="col-xs-6 col-md-4" type="number" ng-model="mealDetail.mealPrice" id="mealPrice" name="mealPrice">
+                </div>
+
+                <div class="row">
+                    <label class="col-xs-6 col-md-4" for="taxRate">Tax Rate %</label>
+                    <input  class="col-xs-6 col-md-4" type="number"  ng-model="mealDetail.taxRate" id="taxRate" name="taxRate">
+                </div>
+
+                <div class="row">
+                    <label class="col-xs-6 col-md-4" for="tipPercentage">Tip Percentage %</label>
+                    <input class="col-xs-6 col-md-4" type="number"  ng-model="mealDetail.tipPercentage" id="tipPercentage" name="taxPercentage">
+                </div>
+
+                <div class="row">
+                    <input class="pull-right" type="submit" value="Submit">
+                    <input class="pull-right" type="button" value="Cancel" ng-click="cancel()">
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <div class="row" ng-controller="customerChargesController">
+        <h2> Customer Charges</h2>
+
+        <div class="row">
+            <label class="col-xs-6 col-md-4" for="subTotal">Subtotal</label>
+            <input class="col-xs-6 col-md-4" name="subTotal" ng-model="customerCharge.subTotal" id="subTotal" type="number" readonly>
+        </div>
+        <div class="row">
+            <label class="col-xs-6 col-md-4" for="tip">Tip</label>
+            <input class="col-xs-6 col-md-4" name="tip" ng-model="customerCharge.tip" id="tip" type="number" readonly>
+        </div>
+        <hr style="border: double">
+        <div class ="row">
+            <label class="col-xs-6 col-md-4" for="total">Total</label>
+            <input class="col-xs-6 col-md-4" name="total" ng-model="customerCharge.total" id="total" type="number" readonly>
+        </div>
+    </div>
+
+    <div class="row" ng-controller="myEarningsController">
+        <h2>My Earnings Info</h2>
+        <div class="row">
+            <label class="col-xs-6 col-md-4" for="tipTotal">Tip Total:</label>
+            <input class="col-xs-6 col-md-4" name="tipTotal" ng-model="myEarnings.tipTotal" id="tipTotal" type="number" readonly>
+        </div>
+        <div class ="row">
+            <label class="col-xs-6 col-md-4" for="mealCount">Meal count:</label>
+            <input class="col-xs-6 col-md-4" name="mealCount" ng-model="myEarnings.mealCount" id="mealCount" type="number" readonly>
+        </div>
+        <div class ="row">
+            <label class="col-xs-6 col-md-4" for="avgTipPerMeal">Average Tip Per Meal:</label>
+            <input class="col-xs-6 col-md-4" name="avgTipPerMeal" ng-model="myEarnings.avgTipPerMeal" id="avgTipPerMeal" type="number" readonly>
+        </div>
+    </div>
+
+    <div class="row" ng-controller="resetController">
+        <input class="pull-right" type="button" value="Reset" ng-click="reset()">
+
+    </div>
+
+
+</div>
+
+</body>
+</html>
