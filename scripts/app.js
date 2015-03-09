@@ -16,6 +16,15 @@
                  $scope.cancel=function(){
                      $scope.mealDetail={};
                  };
+
+                $scope.reset=function(form){
+                    if (form) {
+                        form.$setPristine();
+                        form.$setUntouched();
+                    }
+
+                };
+
             $scope.$on('reset',function(event,data){
                 $scope.mealDetail=data;
             });
